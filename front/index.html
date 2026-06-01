@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRUD FastAPI + MySQL + Nginx</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>CRUD con Proxy Inverso</h1>
+    <p>Nginx sirve este front y enruta hacia los backends internos de Seguridad y Cine.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Gestión de Usuarios</h2>
+
+      <form id="userForm">
+        <input type="hidden" id="userId" />
+        <input id="userName" placeholder="Nombre" required />
+        <input id="userEmail" type="email" placeholder="Email" required />
+        <select id="userRole">
+          <option value="USER">USER</option>
+          <option value="ADMIN">ADMIN</option>
+          <option value="MANAGER">MANAGER</option>
+        </select>
+        <button type="submit">Guardar usuario</button>
+        <button type="button" onclick="resetUserForm()">Limpiar</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Gestión de Películas</h2>
+
+      <form id="movieForm">
+        <input type="hidden" id="movieId" />
+        <input id="movieTitle" placeholder="Título" required />
+        <input id="movieGenre" placeholder="Género" required />
+        <input id="movieYear" type="number" min="1888" max="2100" placeholder="Año" required />
+        <input id="movieDirector" placeholder="Director" />
+        <button type="submit">Guardar película</button>
+        <button type="button" onclick="resetMovieForm()">Limpiar</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Género</th>
+            <th>Año</th>
+            <th>Director</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="moviesTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <div id="message"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
