@@ -1,5 +1,6 @@
-const userApi = "/api/security/users";
-const movieApi = "/api/cine/movies";
+const API_BASE_URL = "http://54.226.253.102:8181/api/";
+const userApi = `${API_BASE_URL}/security/users`;
+const movieApi = `${API_BASE_URL}/cine/movies`;
 
 function showMessage(text) {
   const message = document.getElementById("message");

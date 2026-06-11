@@ -2,8 +2,8 @@
 
 Arquitectura:
 
-- `nginx`: punto único de entrada, sirve el front y enruta a los backends.
-- `front`: HTML/CSS/JS básico.
+- `nginx`: punto único de entrada para APIs, enruta a los backends.
+- `front`: HTML/CSS/JS desplegable por separado (por ejemplo, en AWS S3).
 - `security-backend`: API FastAPI para gestión CRUD de usuarios.
 - `cine-backend`: API FastAPI para gestión CRUD de películas.
 - `mysql`: contenedor MySQL compartido con dos bases de datos:
@@ -38,10 +38,11 @@ SECURITY_DATABASE_URL
 CINE_DATABASE_URL
 ```
 
-Abrir:
+APIs vía Nginx:
 
 ```text
-http://localhost:8181
+http://localhost:8181/api/security/users
+http://localhost:8181/api/cine/movies
 ```
 
 ## Endpoints
